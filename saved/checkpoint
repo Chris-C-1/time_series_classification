@@ -1,0 +1,2 @@
+model_checkpoint_path: "ts_class_network"
+all_model_checkpoint_paths: "ts_class_network"
