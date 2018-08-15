@@ -169,12 +169,6 @@ with tf.name_scope("Fully_Connected2") as scope:
   #h_fc2 = tf.matmul(h_fc1_drop, W_fc2) + b_fc2
   h_fc2 = tf.add(tf.matmul(h_fc1_drop, W_fc2),b_fc2,name='h_fc2')
 with tf.name_scope("SoftMax") as scope:
-
-#    regularizers = (tf.nn.l2_loss(W_conv1) + tf.nn.l2_loss(b_conv1) +
-#                  tf.nn.l2_loss(W_conv2) + tf.nn.l2_loss(b_conv2) +
-#                  tf.nn.l2_loss(W_conv3) + tf.nn.l2_loss(b_conv3) +
-#                  tf.nn.l2_loss(W_fc1) + tf.nn.l2_loss(b_fc1) +
-#                  tf.nn.l2_loss(W_fc2) + tf.nn.l2_loss(b_fc2))
     loss = tf.nn.sparse_softmax_cross_entropy_with_logits(logits=h_fc2,labels=y_)
     cost = tf.reduce_sum(loss) / batch_size
 #    cost += regularization*regularizers
